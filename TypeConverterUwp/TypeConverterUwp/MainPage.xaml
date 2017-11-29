@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="TypeConverterUwp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TypeConverterUwp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <local:DecimalValueWrapper Source="10" x:Key="DecimalValueWrapper"/>
+        <local:Report x:Key="Report" Amount="{Binding Value,Source={StaticResource DecimalValueWrapper}}"/>
+        <local:Email x:Key="Email" Receivers="Zhao;Qian;Sun;Li;Zhou;Wu"/>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel>
+            <ItemsControl DisplayMemberPath="Name" ItemsSource="{Binding Source={StaticResource Email},Path=Receivers}"/>
+            <TextBlock Text="{Binding Source={StaticResource Report},Path=Amount}"/>
+        </StackPanel>
+
+    </Grid>
+</Page>
