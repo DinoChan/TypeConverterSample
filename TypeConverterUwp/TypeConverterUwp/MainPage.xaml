@@ -8,7 +8,6 @@
     mc:Ignorable="d">
     <Page.Resources>
         <local:DecimalValueWrapper Source="10" x:Key="DecimalValueWrapper"/>
-       
         <local:Email x:Key="Email" Receivers="Zhao;Qian;Sun;Li;Zhou;Wu"/>
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

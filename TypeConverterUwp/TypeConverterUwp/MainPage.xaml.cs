@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -31,10 +32,10 @@ namespace TypeConverterUwp
 
     public class MyContentControl : ContentControl
     {
-
         /// <summary>
         /// 获取或设置Amount的值
         /// </summary>  
+        [TypeConverter(typeof(DecimalConverter))]
         public Decimal Amount
         {
             get { return (Decimal)GetValue(AmountProperty); }
@@ -60,8 +61,6 @@ namespace TypeConverterUwp
         {
             Content = "Amount is " + newValue;
         }
-
-      
     }
 
     public class Email
