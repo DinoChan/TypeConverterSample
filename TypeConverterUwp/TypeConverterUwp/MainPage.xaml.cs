@@ -60,7 +60,7 @@ namespace TypeConverterUwp
         {
         }
 
-
+      
     }
 
     public class Email
