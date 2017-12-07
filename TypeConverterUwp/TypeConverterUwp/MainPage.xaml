@@ -8,13 +8,13 @@
     mc:Ignorable="d">
     <Page.Resources>
         <local:DecimalValueWrapper Source="10" x:Key="DecimalValueWrapper"/>
-        <local:Report x:Key="Report" Amount="{Binding Value,Source={StaticResource DecimalValueWrapper}}"/>
+       
         <local:Email x:Key="Email" Receivers="Zhao;Qian;Sun;Li;Zhou;Wu"/>
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
             <ItemsControl DisplayMemberPath="Name" ItemsSource="{Binding Source={StaticResource Email},Path=Receivers}"/>
-            <TextBlock Text="{Binding Source={StaticResource Report},Path=Amount}"/>
+            <local:MyContentControl  Amount="{Binding Value,Source={StaticResource DecimalValueWrapper}}"/>
         </StackPanel>
 
     </Grid>

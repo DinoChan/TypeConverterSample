@@ -29,7 +29,7 @@ namespace TypeConverterUwp
         }
     }
 
-    public class Report : DependencyObject
+    public class MyContentControl : ContentControl
     {
 
         /// <summary>
@@ -45,11 +45,11 @@ namespace TypeConverterUwp
         /// 标识 Amount 依赖属性。
         /// </summary>
         public static readonly DependencyProperty AmountProperty =
-            DependencyProperty.Register("Amount", typeof(Decimal), typeof(Report), new PropertyMetadata(0m, OnAmountChanged));
+            DependencyProperty.Register("Amount", typeof(Decimal), typeof(MyContentControl), new PropertyMetadata(0m, OnAmountChanged));
 
         private static void OnAmountChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
         {
-            Report target = obj as Report;
+            MyContentControl target = obj as MyContentControl;
             Decimal oldValue = (Decimal)args.OldValue;
             Decimal newValue = (Decimal)args.NewValue;
             if (oldValue != newValue)
@@ -58,6 +58,7 @@ namespace TypeConverterUwp
 
         protected virtual void OnAmountChanged(Decimal oldValue, Decimal newValue)
         {
+            Content = "Amount is " + newValue;
         }
 
       
