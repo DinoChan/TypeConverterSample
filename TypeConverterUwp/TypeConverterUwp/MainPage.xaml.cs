@@ -88,37 +88,16 @@ namespace TypeConverterUwp
         }
     }
 
-    public abstract class StringValueWrapper<T>
+ 
+
+    public class StringToDecimalBridge
     {
-        public T Value { get; protected set; }
-
-
-        private string _source;
-
-        /// <summary>
-        /// 获取或设置 Source 的值
-        /// </summary>
-        public string Source
+        public Decimal this[string key]
         {
-            get { return _source; }
-            set
+            get
             {
-                if (_source == value)
-                    return;
-
-                _source = value;
-                Value = ConvertFromString(value);
+                return Convert.ToDecimal(key);
             }
-        }
-
-        protected abstract T ConvertFromString(string source);
-    }
-
-    public class DecimalValueWrapper : StringValueWrapper<decimal>
-    {
-        protected override decimal ConvertFromString(string source)
-        {
-            return Convert.ToDecimal(source);
         }
     }
 

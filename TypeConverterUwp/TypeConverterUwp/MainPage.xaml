@@ -7,13 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.Resources>
-        <local:DecimalValueWrapper Source="10" x:Key="DecimalValueWrapper"/>
+        <local:StringToDecimalBridge x:Key="StringToDecimalBridge"/>
         <local:Email x:Key="Email" Receivers="Zhao;Qian;Sun;Li;Zhou;Wu"/>
     </Page.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
             <ItemsControl DisplayMemberPath="Name" ItemsSource="{Binding Source={StaticResource Email},Path=Receivers}"/>
-            <local:MyContentControl  Amount="{Binding Value,Source={StaticResource DecimalValueWrapper}}"/>
+            <local:MyContentControl  Amount="{Binding [10.3],Source={StaticResource StringToDecimalBridge}}"/>
         </StackPanel>
 
     </Grid>
